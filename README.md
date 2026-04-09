@@ -55,7 +55,7 @@ SpinePipeline/
 
 After restart, find the module via **Modules → Examples → SpinePipeline**.
 
-![alt text](figures/slicer_module_readme.png.png)
+![folder_structure](figures/slicer_module_readme.png?raw=true)
 
 ---
 
@@ -129,7 +129,9 @@ This mode is intended for remote Linux servers accessed via SSH, where no graphi
 
 #### 1. Install 3D Slicer on the server
 
-Download the Linux build from [https://download.slicer.org](https://download.slicer.org) and unpack it:
+Download the Linux build from [https://download.slicer.org](https://download.slicer.org) and unpack it.
+
+Example (Linux Slicer 5.10.0):
 
 ```bash
 wget "https://download.slicer.org/bitstream/6911b598ac7b1c95e7934427" -O slicer.tar.gz
