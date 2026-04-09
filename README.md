@@ -55,7 +55,7 @@ SpinePipeline/
 
 After restart, find the module via **Modules → Examples → SpinePipeline**.
 
-![folder_structure](figures/slicer_module_readme.png?raw=true)
+<img src="figures/slicer_module_readme.png" width="50%" alt="folder_structure"/>
 
 ---
 
