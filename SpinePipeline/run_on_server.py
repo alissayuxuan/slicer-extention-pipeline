@@ -2,7 +2,6 @@
 import sys
 import os
 
-# Fix für stdin Problem
 import io
 sys.stdin = io.StringIO()
 
