@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SpinePipeline</class>
+ <widget class="qMRMLWidget" name="SpinePipeline">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>325</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+
+   <!-- Inputs -->
+
+
+   <!-- Setup  -->
+   <item>
+    <widget class="ctkCollapsibleButton" name="setupCollapsibleButton">
+        <property name="text">
+        <string>Setup (first time only)</string>
+        </property>
+        <layout class="QFormLayout" name="setupFormLayout">
+
+
+        <!-- Download Button -->
+        <item row="0" column="0" colspan="2">
+            <widget class="QPushButton" name="downloadEnvButtonWindows">
+            <property name="text">
+                <string>Download slicer_osim_windows.yml</string>
+            </property>
+            <property name="toolTip">
+                <string>Download the conda environment file and install it with:
+    conda env create -f slicer_osim_windows.yml</string>
+            </property>
+            </widget>
+        </item>
+
+
+        <!-- Download Button -->
+        <item row="1" column="0" colspan="2">
+            <widget class="QPushButton" name="downloadEnvButtonLinux">
+            <property name="text">
+                <string>Download slicer_osim_linux.yml</string>
+            </property>
+            <property name="toolTip">
+                <string>Download the conda environment file and install it with:
+    conda env create -f slicer_osim_linux.yml</string>
+            </property>
+            </widget>
+        </item>
+
+        
+
+        </layout>
+    </widget>
+   </item>
+
+
+
+
+
+
+
+
+   <item>
+    <widget class="ctkCollapsibleButton" name="inputsCollapsibleButton">
+     <property name="text">
+      <string>Inputs</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+
+      <!-- Data folder selection -->
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_dataPath">
+        <property name="text">
+         <string>Data Folder:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="ctkPathLineEdit" name="dataPathLineEdit">
+        <property name="toolTip">
+         <string>Select the folder with the patient data.</string>
+        </property>
+        <property name="filters">
+         <set>ctkPathLineEdit::Dirs</set>
+        </property>
+       </widget>
+      </item>
+
+      <!-- Conda Python -->
+    <item row="1" column="0">
+        <widget class="QLabel" name="label_condaPython">
+        <property name="text"><string>Conda Python:</string></property>
+        </widget>
+    </item>
+    <item row="1" column="1">
+        <widget class="ctkPathLineEdit" name="condaPythonLineEdit">
+        <property name="toolTip">
+            <string>Path to python of the slicer_osim environment.
+            e.g. ~/anaconda3/envs/slicer_osim/bin/python3
+
+            Create the environment using:
+            conda env create -f slicer_osim.yml
+            </string>
+        </property>
+        <property name="filters">
+            <set>ctkPathLineEdit::Files</set>
+        </property>
+        </widget>
+    </item>
+
+     </layout>
+    </widget>
+   </item>
+
+   <!-- Apply Button -->
+   <item>
+    <widget class="QPushButton" name="applyButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="toolTip">
+      <string>Run Spine Pipeline.</string>
+     </property>
+     <property name="text">
+      <string>Run Pipeline</string>
+     </property>
+    </widget>
+   </item>
+
+   <!-- Spacer damit Button oben bleibt -->
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+
+  </layout>
+ </widget>
+
+ <customwidgets>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ctkCollapsibleButton</class>
+   <extends>QWidget</extends>
+   <header>ctkCollapsibleButton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ctkPathLineEdit</class>
+   <extends>QWidget</extends>
+   <header>ctkPathLineEdit.h</header>
+  </customwidget>
+ </customwidgets>
+
+ <resources/>
+ <connections/>
+</ui>

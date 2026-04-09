@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActuatorSet name="">
+	<defaults>
+		<Force name="default">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 1000.0 </optimal_force>
+			<body_A> </body_A>
+			<point_A> 0.000 0.000 0.000 </point_A>
+			<direction_A> 1.000 0.000 0.000 </direction_A>
+		</Force>
+		<Torque name="default">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 1000.0 </optimal_force>
+			<body_A> </body_A>
+			<direction_A> 1.000 0.000 0.000 </direction_A>
+			<body_B> </body_B>
+		</Torque>
+		<GeneralizedForce name="default">
+			<max_force> 100000.0 </max_force>
+			<min_force> -100000.0 </min_force>
+			<optimal_force> 1000.0 </optimal_force>
+			<coordinate> </coordinate>
+		</GeneralizedForce>
+	</defaults>
+	<objects>
+		<!-- Residuals -->
+		<Force name="FXR">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 5000.0 </optimal_force>
+			<body_A> ground </body_A>
+			<point_A> 0.000 0.000 0.000 </point_A>
+			<direction_A> -1.000 0.000 0.000 </direction_A>
+			<body_B> calcn_r </body_B>
+			<point_B> 0 0.00000000 0.00000000 </point_B>
+		</Force>
+		<Force name="FYR">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 5000.0 </optimal_force>
+			<body_A> ground </body_A>
+			<point_A> 0.000 0.000 0.000 </point_A>
+			<direction_A> 0.000 -1.000 0.000 </direction_A>
+			<body_B> calcn_r </body_B>
+			<point_B> 0 0.00000000 0.00000000 </point_B>
+		</Force>
+		<Force name="FZR">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 5000.0 </optimal_force>
+			<body_A> ground </body_A>
+			<point_A> 0.000 0.000 0.000 </point_A>
+			<direction_A> 0.000 0.000 -1.000 </direction_A>
+			<body_B> calcn_r </body_B>
+			<point_B> 0 0.00000000 0.00000000 </point_B>
+		</Force>
+		<Force name="FXL">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 5000.0 </optimal_force>
+			<body_A> ground </body_A>
+			<point_A> 0.000 0.000 0.000 </point_A>
+			<direction_A> -1.000 0.000 0.000 </direction_A>
+			<body_B> calcn_l </body_B>
+			<point_B> 0 0.00000000 0.00000000 </point_B>
+		</Force>
+		<Force name="FYL">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 5000.0 </optimal_force>
+			<body_A> ground </body_A>
+			<point_A> 0.000 0.000 0.000 </point_A>
+			<direction_A> 0.000 -1.000 0.000 </direction_A>
+			<body_B> calcn_l </body_B>
+			<point_B> 0 0.00000000 0.00000000 </point_B>
+		</Force>
+		<Force name="FZL">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 5000.0 </optimal_force>
+			<body_A> ground </body_A>
+			<point_A> 0.000 0.000 0.000 </point_A>
+			<direction_A> 0.000 0.000 -1.000 </direction_A>
+			<body_B> calcn_l </body_B>
+			<point_B> 0 0.00000000 0.00000000 </point_B>
+		</Force>
+		<Torque name="MXR">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 500.0 </optimal_force>
+			<body_A> ground </body_A>
+			<direction_A> -1.000 0.000 0.000 </direction_A>
+			<body_B> calcn_r </body_B>
+		</Torque>
+		<Torque name="MYR">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 500.0 </optimal_force>
+			<body_A> ground </body_A>
+			<direction_A> 0.000 -1.000 0.000 </direction_A>
+			<body_B> calcn_r </body_B>
+		</Torque>
+		<Torque name="MZR">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 500.0 </optimal_force>
+			<body_A> ground </body_A>
+			<direction_A> 0.000 0.000 -1.000 </direction_A>
+			<body_B> calcn_r </body_B>
+		</Torque>
+		<Torque name="MXL">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 500.0 </optimal_force>
+			<body_A> ground </body_A>
+			<direction_A> -1.000 0.000 0.000 </direction_A>
+			<body_B> calcn_l </body_B>
+		</Torque>
+		<Torque name="MYL">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 500.0 </optimal_force>
+			<body_A> ground </body_A>
+			<direction_A> 0.000 -1.000 0.000 </direction_A>
+			<body_B> calcn_l </body_B>
+		</Torque>
+		<Torque name="MZL">
+			<max_force> 100000.000 </max_force>
+			<min_force> -100000.000 </min_force>
+			<optimal_force> 500.0 </optimal_force>
+			<body_A> ground </body_A>
+			<direction_A> 0.000 0.000 -1.000 </direction_A>
+			<body_B> calcn_l </body_B>
+		</Torque>
+	</objects>
+</ActuatorSet>
+

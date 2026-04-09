@@ -1,0 +1,26 @@
+<root>
+  <model_creation_base>
+    <base_model>
+      <!--Male basemodel path (.osim)-->
+      <male_basemodel_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\model\MaleFullBodyModel_v2.0_OS4_no_marker.osim</male_basemodel_path>
+      <!--Male basemodel generic height in m-->
+      <male_basemodel_height>1.75</male_basemodel_height>
+      <!--Female basemodel path (.osim)-->
+      <female_basemodel_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\model\FemaleFullBodyModel_v2.0_OS4_no_marker.osim</female_basemodel_path>
+      <!--Female basemodel generic height in m-->
+      <female_basemodel_height>1.63</female_basemodel_height>
+      <!--CCC basemodel path (.osim)-->
+      <ccc_basemodel_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\model\BaseFullbody_6DOF.osim</ccc_basemodel_path>
+    </base_model>
+    <marker_set>
+      <!--Male marker set file path (.xml)-->
+      <male_marker_set_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\model\markers_Male_VLStudy.xml</male_marker_set_path>
+      <!--Female marker set path (.xml)-->
+      <female_marker_set_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\model\markers_Female_VLStudy.xml</female_marker_set_path>
+    </marker_set>
+    <scale_setup>
+      <!--Scale tool setup file path (.xml) Use ScaleTool.xml if has motion data-->
+      <scale_setup_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\setup\scaleTool_Setup_KBedit.xml</scale_setup_path>
+    </scale_setup>
+  </model_creation_base>
+</root>

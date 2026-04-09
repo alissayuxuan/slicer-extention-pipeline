@@ -1,0 +1,28 @@
+<root>
+  <analysis_setup>
+    <analysis_trial>
+      <!--Trial Name-->
+      <trial_name>22</trial_name>
+      <!--Static Optimization & Joint Reaction Analysis basemodel(.osim)-->
+      <analysis_basemodel_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\model\BaseFullbody_3DOF.osim</analysis_basemodel_path>
+      <!--External Force (.mot/.sto)-->
+      <external_force_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline/base/motion/Motion22/NMB_ExternalForce22.mot</external_force_path>
+      <!--Motion Data (.mot/.sto)-->
+      <motion_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline/base/motion/Motion22/NMB_Motion22.mot</motion_path>
+      <!--Setup Files-->
+      <trial_setup>
+        <!--Static Optimization Setup (.xml)-->
+        <external_force_setup_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\setup\extForces_Setup.xml</external_force_setup_path>
+        <!--Static Optimization Setup (.xml)-->
+        <SO_setup_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\setup\staticOpt_Setup.xml</SO_setup_path>
+        <!--Joint Reaction Analysis Setup (.xml)-->
+        <JRA_setup_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\setup\jointReact_Setup.xml</JRA_setup_path>
+        <!--Actuator setup file path (.xml)-->
+        <actuator_path_list>
+          <actuator_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline\base\setup\actuator\Actuators_Supine.xml</actuator_path>
+          <actuator_path>C:/Users/danders7/OpenSim-Spine-Project/OpenSim-Spine-Project/opensim_pipeline/base/setup/actuator/SO_Actuators_FeetOnly.xml</actuator_path>
+        </actuator_path_list>
+      </trial_setup>
+    </analysis_trial>
+  </analysis_setup>
+</root>
