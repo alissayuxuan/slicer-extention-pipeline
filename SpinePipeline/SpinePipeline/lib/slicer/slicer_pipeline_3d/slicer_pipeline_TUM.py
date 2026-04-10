@@ -122,25 +122,25 @@ muscle_index_list = [1,    2,    3,    4,    5,
 # # Main
 
 
-#def main(patient_id, patient_id_int, sex, height, weight, data_path, volume_filename=None, muscle_segmentation_filename=None, vertebra_segmentation_filename=None, vertebra_properties_filename=None, info_file_name='info.mat'):
+def main(patient_id, patient_id_int, age, sex, height, weight, data_path, volume_filename=None, muscle_segmentation_filename=None, vertebra_segmentation_filename=None, vertebra_properties_filename=None, info_file_name='info.mat'):
 
 # removed muscle segmentation for now (not available) -> adjust function definition accordingly
-def main(patient_id, patient_id_int, age, sex, height, weight, data_path, volume_filename=None, vertebra_segmentation_filename=None, vertebra_properties_filename=None, info_file_name='info.mat'):
+#def main(patient_id, patient_id_int, age, sex, height, weight, data_path, volume_filename=None, vertebra_segmentation_filename=None, vertebra_properties_filename=None, info_file_name='info.mat'):
 
     print("start main: slicer pipeline")
     # setting up file paths
     volume_path = os.path.join(
         data_path, volume_filename)
-    #muscle_segmentation_path = os.path.join(
-    #    data_path, muscle_segmentation_filename)
+    muscle_segmentation_path = os.path.join(
+        data_path, muscle_segmentation_filename)
     vertebra_segmentation_path = os.path.join(
         data_path, vertebra_segmentation_filename)
     vertebra_properties_path = os.path.join(
         data_path, vertebra_properties_filename)
     
     # load files only if all available (into slicer)
-    #if data_path and volume_filename and muscle_segmentation_filename and vertebra_segmentation_filename:
-    if data_path and volume_filename and vertebra_segmentation_filename:
+    if data_path and volume_filename and muscle_segmentation_filename and vertebra_segmentation_filename:
+    #if data_path and volume_filename and vertebra_segmentation_filename:
 
         print("load files into slicer")
 
@@ -148,7 +148,7 @@ def main(patient_id, patient_id_int, age, sex, height, weight, data_path, volume
         slicer.util.loadSegmentation(vertebra_segmentation_path)
 
         print("finish loading files into slicer")
-        #slicer.util.loadSegmentation(muscle_segmentation_path)
+        slicer.util.loadSegmentation(muscle_segmentation_path)
 
     volume_node = slicer.util.getNodesByClass('vtkMRMLScalarVolumeNode')[0]
     if volume_node:
@@ -180,12 +180,12 @@ def main(patient_id, patient_id_int, age, sex, height, weight, data_path, volume
 
     # calculate muscle segmentation centroids and mask (same as before with vertebra)
     
-    """
+    
     muscle_segmentation_node = segmentation_node_list[1]
     set_segments_name_by_map(muscle_segmentation_node, muscle_segment_map)
     muscle_segment_arrays_dict = get_segment_arrays_dict(
         muscle_segmentation_node, volume_node)
-    """
+    
     
 
     #  calculate spine (geometical) measurements in 3d
@@ -221,7 +221,7 @@ def main(patient_id, patient_id_int, age, sex, height, weight, data_path, volume
                          volume_3D_array.shape, ijk_to_ras_array)
 
     # calculate muscle crosssection(CSA), horizontal distance(MAX) and vertical distance(MAZ) in slice
-    """
+    
     database = calculate_muscle_measurement_database(
         patient_id_int,
         volume_3D_array, vertebra_segment_arrays_dict, muscle_segment_arrays_dict,
@@ -230,16 +230,17 @@ def main(patient_id, patient_id_int, age, sex, height, weight, data_path, volume
 
     muscledataCSA_L, muscledataCSA_R, muscledataMAX_L, muscledataMAX_R, muscledataMAZ_L, muscledataMAZ_R = get_muscle_info_from_database_3D(
         database, muscle_index_list, level_L5_T1)
-    """
+    
 
     out_path = os.path.join(os.path.join(data_path, 'derivatives'), patient_id)
 
     # ---------------------------------Make (opensim) Info File--------------------------------- 
-    #osim_info = print_info_file_3D(patient_id, sex, height, weight, age, joint_dist_3D, vertebral_axes, IVJ_centroids_3D, muscledataCSA_L,
-    #                               muscledataCSA_R, muscledataMAX_L, muscledataMAX_R, muscledataMAZ_L, muscledataMAZ_R, out_path)
+    osim_info = print_info_file_3D(patient_id, sex, height, weight, age, joint_dist_3D, vertebral_axes, IVJ_centroids_3D, muscledataCSA_L,
+                                   muscledataCSA_R, muscledataMAX_L, muscledataMAX_R, muscledataMAZ_L, muscledataMAZ_R, out_path)
     print("create osim_info")
-    osim_info = print_info_file_3D_no_muscle(patient_id, sex, height, weight, age, joint_dist_3D, vertebral_axes, IVJ_centroids_3D, out_path)
+    #osim_info = print_info_file_3D_no_muscle(patient_id, sex, height, weight, age, joint_dist_3D, vertebral_axes, IVJ_centroids_3D, out_path)
 
+"""
 if __name__ == '__main__':
 
     #data_path, patient_id, age, sex, height, weight, volume_filename, vb_segmentation_filename, muscle_segmentation_filename, vertebra_properties_filename = sys.argv[1:11]
@@ -254,3 +255,4 @@ if __name__ == '__main__':
         volume_filename, vb_segmentation_filename, vertebra_properties_filename)
 
     slicer.util.quit()
+"""

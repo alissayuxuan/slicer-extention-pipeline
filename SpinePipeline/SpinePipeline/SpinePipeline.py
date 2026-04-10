@@ -660,20 +660,20 @@ class SpinePipelineLogic(ScriptedLoadableModuleLogic):
                 # and the subject can be further processed in the OpenSim pipeline).
 
                 # Slicer Pipeline: takes segmentations and calculates 3D models and geometric properties -> creates an osim file
-                #if all([volume_filename, vb_segmentation_filename, muscle_segmentation_clean_filename, vertebra_properties_filename]) and not osim_file:
+                if all([volume_filename, vb_segmentation_filename, muscle_segmentation_filename, vertebra_properties_filename]) and not osim_file:
         
                 # ignore muscle segmentation for now (not available)
-                if all([volume_filename, vb_segmentation_filename, vertebra_properties_filename]) and not osim_file:
+                #if all([volume_filename, vb_segmentation_filename, vertebra_properties_filename]) and not osim_file:
                     
                     try:
                         print(f"########## Start Slicer Pipeline for {patient_id} ##########")
                         
                         match = re.search(r'\d+', patient_id)
                         patient_id_int = int(match.group()) if match else None
-                        #main(patient_id, patient_id_int, sex, height, weight, data_path,
-                        #        volume_filename, muscle_segmentation_filename, vb_segmentation_filename, vertebra_properties_filename)
-                        slicer_pipeline_main(patient_id, patient_id_int, age, sex, height, weight, data_path,
-                            volume_filename, vb_segmentation_filename, vertebra_properties_filename)
+                        slicer_pipeline_main(patient_id, patient_id_int, sex, height, weight, data_path,
+                                volume_filename, muscle_segmentation_filename, vb_segmentation_filename, vertebra_properties_filename)
+                        #slicer_pipeline_main(patient_id, patient_id_int, age, sex, height, weight, data_path,
+                        #    volume_filename, vb_segmentation_filename, vertebra_properties_filename)
                         
                         print(f"########## Completed Slicer Pipeline for {patient_id} ##########")
                     

@@ -8,7 +8,7 @@ from utils import get_base_setup_info, create_folder, get_patient_setup_info
 from model_operations import Add_Marker, Un_LockCoordinates_OS4, AddDOF_OS4, Change_MTA_Act, ChangeBox_Inertia
 from scaling_operations import Scale_Height, ScaleOpenSim
 from spine_adjustments import Spine_Curvature_Adj, Spine_JtDist_Adj, getJointAngles_Osim
-#from muscle_adjustments import Evaluate_Muscle_AllLevels_v3_EOTM_Side, ScaleMuscleMarkerModel, ScaleMuscleProperties
+from muscle_adjustments import Evaluate_Muscle_AllLevels_v3_EOTM_Side, ScaleMuscleMarkerModel, ScaleMuscleProperties
 
 
 np.seterr(divide='ignore', invalid='ignore')
@@ -73,13 +73,12 @@ if __name__ == '__main__':
     mass = np.float64(info['Weight'])  #it's mass not weight!!!!!!!
     Height = np.float64(info['Height'])
 
-    #Alissa: ignore muscle data for now
-    ###muscledataCSA_L = info['muscleCSA_L']
-    ###muscledataCSA_R = info['muscleCSA_R']
-    ###muscledataMAX_L = info['muscleAP_L']
-    ###muscledataMAX_R = info['muscleAP_R']
-    ###muscledataMAZ_L = info['muscleML_L']
-    ###muscledataMAZ_R = info['muscleML_R']
+    muscledataCSA_L = info['muscleCSA_L']
+    muscledataCSA_R = info['muscleCSA_R']
+    muscledataMAX_L = info['muscleAP_L']
+    muscledataMAX_R = info['muscleAP_R']
+    muscledataMAZ_L = info['muscleML_L']
+    muscledataMAZ_R = info['muscleML_R']
 
     # %%
     ## Check if use TRC 1 or 2; either Trial 1 or 2        
@@ -194,8 +193,7 @@ if __name__ == '__main__':
 
         # ## Evaluate Muscle All levels
 
-    ### Alissa: ignore muscle data for now
-    """
+    
     preCSA_info, preMAX_info, preMAZ_info,preFascicleCSA_info, preFascicleMAX_info, preFascicleMAZ_info,VertCentY, VertCent, JointCent = Evaluate_Muscle_AllLevels_v3_EOTM_Side(New_Model,'left')
 
     base_muscle_info = {
@@ -231,16 +229,14 @@ if __name__ == '__main__':
 
     
     New_Model = newMuscleModel
-    """
+    
 
     # %%
     ## adjust muscle length parameters based on baselines (needed as we change angles and distances outside of OpenSim Scaling)
-    
-    ### Alissa: ignore muscle data for now
-    """
+        
     newMuscleLModel = ScaleMuscleProperties(New_Model, BaseModel, '_MuscleLengths')       
     New_Model = newMuscleLModel
-    """
+    
     # %%
     ## change max muscle control (from 1 to 5)
     Change_MTA_Act(New_Model, 5)      #keeps same name 'New_Model'
